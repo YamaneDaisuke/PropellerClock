@@ -26,6 +26,7 @@ eagle.epf
 *.sts
 *.crc
 *.crs
+*.out
 
 *.dri
 *.drl

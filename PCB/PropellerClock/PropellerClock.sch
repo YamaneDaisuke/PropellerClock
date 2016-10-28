@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="mm" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="no" active="no"/>
@@ -7796,6 +7796,10 @@ type 0309, grid 12.5 mm</description>
 <classes>
 <class number="0" name="default" width="0" drill="0">
 </class>
+<class number="1" name="power" width="1" drill="0">
+</class>
+<class number="2" name="GND" width="1" drill="0">
+</class>
 </classes>
 <parts>
 <part name="LED1" library="led" deviceset="LED" device="3MM"/>
@@ -7809,8 +7813,6 @@ type 0309, grid 12.5 mm</description>
 <part name="IC1" library="RTC-module" deviceset="DIL8" device="S"/>
 <part name="LED9" library="led" deviceset="LED" device="3MM"/>
 <part name="LED10" library="led" deviceset="LED" device="3MM"/>
-<part name="C1" library="rcl" deviceset="C-EU" device="C3216"/>
-<part name="C2" library="rcl" deviceset="C-EU" device="C3216"/>
 <part name="C3" library="rcl" deviceset="C-EU" device="C2012"/>
 <part name="GND1" library="supply1" deviceset="GND" device=""/>
 <part name="+3V1" library="supply1" deviceset="+3V3" device=""/>
@@ -7856,8 +7858,6 @@ type 0309, grid 12.5 mm</description>
 <instance part="IC1" gate="G$1" x="116.84" y="86.36"/>
 <instance part="LED9" gate="G$1" x="355.6" y="0"/>
 <instance part="LED10" gate="G$1" x="363.22" y="0"/>
-<instance part="C1" gate="G$1" x="208.28" y="119.38"/>
-<instance part="C2" gate="G$1" x="175.26" y="119.38"/>
 <instance part="C3" gate="G$1" x="165.1" y="119.38"/>
 <instance part="GND1" gate="1" x="193.04" y="106.68"/>
 <instance part="+3V1" gate="G$1" x="208.28" y="134.62"/>
@@ -7897,21 +7897,17 @@ type 0309, grid 12.5 mm</description>
 </bus>
 </busses>
 <nets>
-<net name="GND" class="0">
+<net name="GND" class="2">
 <segment>
-<pinref part="C3" gate="G$1" pin="2"/>
-<wire x1="165.1" y1="114.3" x2="175.26" y2="114.3" width="0.1524" layer="91"/>
 <pinref part="GND1" gate="1" pin="GND"/>
-<wire x1="175.26" y1="114.3" x2="193.04" y2="114.3" width="0.1524" layer="91"/>
 <wire x1="193.04" y1="114.3" x2="193.04" y2="109.22" width="0.1524" layer="91"/>
-<pinref part="C1" gate="G$1" pin="2"/>
 <wire x1="208.28" y1="114.3" x2="193.04" y2="114.3" width="0.1524" layer="91"/>
-<pinref part="C2" gate="G$1" pin="2"/>
-<junction x="175.26" y="114.3"/>
 <pinref part="PAD1" gate="P" pin="P"/>
 <wire x1="208.28" y1="114.3" x2="208.28" y2="109.22" width="0.1524" layer="91"/>
+<pinref part="C3" gate="G$1" pin="2"/>
 <pinref part="C4" gate="G$1" pin="2"/>
 <wire x1="152.4" y1="114.3" x2="165.1" y2="114.3" width="0.1524" layer="91"/>
+<wire x1="165.1" y1="114.3" x2="193.04" y2="114.3" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="U$1" gate="A" pin="VSS"/>
@@ -7959,18 +7955,14 @@ type 0309, grid 12.5 mm</description>
 <junction x="355.6" y="-15.24"/>
 </segment>
 </net>
-<net name="+3V3" class="0">
+<net name="+3V3" class="1">
 <segment>
-<pinref part="C1" gate="G$1" pin="1"/>
 <pinref part="+3V1" gate="G$1" pin="+3V3"/>
 <wire x1="208.28" y1="121.92" x2="208.28" y2="132.08" width="0.1524" layer="91"/>
 <pinref part="C3" gate="G$1" pin="1"/>
-<pinref part="C2" gate="G$1" pin="1"/>
-<wire x1="175.26" y1="121.92" x2="165.1" y2="121.92" width="0.1524" layer="91"/>
-<junction x="175.26" y="121.92"/>
 <pinref part="PAD2" gate="P" pin="P"/>
 <wire x1="165.1" y1="129.54" x2="165.1" y2="121.92" width="0.1524" layer="91"/>
-<wire x1="175.26" y1="121.92" x2="208.28" y2="121.92" width="0.1524" layer="91"/>
+<wire x1="165.1" y1="121.92" x2="208.28" y2="121.92" width="0.1524" layer="91"/>
 <pinref part="C4" gate="G$1" pin="1"/>
 <wire x1="165.1" y1="121.92" x2="152.4" y2="121.92" width="0.1524" layer="91"/>
 </segment>
@@ -8198,7 +8190,7 @@ type 0309, grid 12.5 mm</description>
 <wire x1="231.14" y1="58.42" x2="223.52" y2="58.42" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$4" class="0">
+<net name="N$4" class="1">
 <segment>
 <pinref part="IC1" gate="G$1" pin="VDD"/>
 <wire x1="137.16" y1="93.98" x2="127" y2="93.98" width="0.1524" layer="91"/>

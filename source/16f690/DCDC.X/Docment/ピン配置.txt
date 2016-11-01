@@ -1,0 +1,20 @@
+1 : VDD
+2 : OSC1
+3 : OSC2
+4 : Reset	(10k pullup)
+5 : Signal Out 	(PWM)
+6 : n/a
+7 : n/a
+8 : n/a
+9 : n/a
+10: n/a
+11: n/a
+12: n/a
+13: n/a
+14: n/a
+15: n/a
+16: Vin (0-3V) //Use AN4
+17: n/a
+18: n/a
+19: n/a
+20: GND

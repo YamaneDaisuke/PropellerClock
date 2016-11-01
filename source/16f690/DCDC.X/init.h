@@ -7,12 +7,16 @@
 
 #ifndef INIT_H
 #define	INIT_H
-
+#include "PWMController.h"
 #ifdef	__cplusplus
 extern "C" {
 #endif
 
-extern void initPORT(void);
+    extern void initPWM(void);
+    extern void initTMR2(void);
+    extern void initISR(void);
+    extern void initPORTC(void);
+    extern void initADC(void);
 
 
 #ifdef	__cplusplus
